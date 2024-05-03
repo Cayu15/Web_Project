@@ -26,10 +26,15 @@
     </div>
     </div>
     </nav>
-<div id="content">
-    <?php
-        include("./pages/{$search['file']}.php");
-     ?>
-</div>
+    <div class="container">
+        <div class="row">
+            <div id="content" class="col-md-6 col-sm-3">
+                <?php
+                    include("./pages/{$search['file']}.php");
+                ?>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

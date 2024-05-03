@@ -1,0 +1,1 @@
+<h2 id="error"><?= $search['text'] ?></h2>
