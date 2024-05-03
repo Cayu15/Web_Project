@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Web project</title>
-</head>
-<body>
-    
-</body>
-</html>
+<?php 
+include('./includer/config.inc.php');
+
+$search = $pages['/'];
+if(isset($_GET['page'])){
+    if(isset($pages[$_GET['page']]) && file_exists("./pages/{$pages[$_GET['page']]['file']}.php")){
+        $search = $pages[$_GET['page']];
+    }else{
+        $search = $error_page;
+        header("HTTP/1.0 404 Not Found");
+    }
+}
+include('./index.tmpl.php');
+?>
