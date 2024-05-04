@@ -1,7 +1,51 @@
-body{
-    background-color: #800E13;
+body
+{
+    background-color: #640D14;
     color: white;
 }
-#error{
+
+ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #250902;
+}
+  
+li
+{
+    float: left;
+}
+  
+li a 
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+li a:hover
+{
+    background-color: #AD2831;
+}
+
+
+label
+{
+    width: 150px; 
+    display: inline-block;
+}
+   
+input, select
+{
+    margin: 10px 0;
+    padding: 2px;
+}
+
+#error
+{
     text-align: center;
 }

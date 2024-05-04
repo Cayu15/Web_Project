@@ -1,5 +1,5 @@
 <?php 
-include('./includer/config.inc.php');
+include('./includes/config.inc.php');
 
 $search = $pages['/'];
 if(isset($_GET['page'])){
