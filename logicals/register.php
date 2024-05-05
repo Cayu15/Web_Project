@@ -1,7 +1,8 @@
 <?php
-if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) && isset($_POST['fname']) && isset($_POST['email'])) {
+if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) && isset($_POST['fname']) && isset($_POST['email']))
+{
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=database', 'root', '',
+        $dbh = new PDO('mysql:host=localhost;dbname=diyproject', 'root', '',
                         array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
         $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
         
@@ -13,15 +14,21 @@ if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) 
             $retry = "true";
         }
         else {
-            $sqlInsert = "insert into user(user_id, lastname, firstname, username, password, email)
+            $sqlInsert = "insert into users (user_id, lastname, firstname, username, password, email)
                           values(0, :lname, :fname, :username, :password, :email)";
             $stmt = $dbh->prepare($sqlInsert); 
-            $stmt->execute(array(':lastname' => $_POST['lname'], ':firstname' => $_POST['fname'],
-                                 ':username' => $_POST['user'], ':password' => sha1($_POST['password']))); 
+            $stmt->execute(array(
+                                ':lname' => $_POST['lname'],
+                                ':fname' => $_POST['fname'],
+                                ':username' => $_POST['user'],
+                                ':password' => sha1($_POST['password']),
+                                ':email' => sha1($_POST['email'])
+                            )); 
             if($count = $stmt->rowCount()) {
-                $newuser_id = $dbh->lastInsertuser_id();
-                $message = "A regisztrációja sikeres.<br>Azonosítója: {$newuser_id}";                     
+                $newuser_id = $dbh->lastInsertId();                  
                 $retry = false;
+                $message = "A regisztráció sikeres.";
+                exit();
             }
             else {
                 $message = "A regisztráció nem sikerült.";
@@ -33,5 +40,10 @@ if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) 
         $message = "Hiba: ".$e->getMessage();
         $retry = true;
     }      
+}
+else
+{
+    header("Location: index.php");
+    exit();
 }
 ?>

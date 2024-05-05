@@ -1,9 +1,8 @@
 <?php
-session_start();
 if(isset($_POST['user']) && isset($_POST['password']))
 {
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=database', 'root', '',
+        $dbh = new PDO('mysql:host=localhost;dbname=diyproject', 'root', '',
                         array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
         $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
 
@@ -18,8 +17,14 @@ if(isset($_POST['user']) && isset($_POST['password']))
             $_SESSION['login'] = $_POST['user'];
         }
     }
-    catch (PDOException $e) {
+    catch (PDOException $e)
+    {
         $errormessage = "Hiba: ".$e->getMessage();
     }      
+}
+
+else
+{
+    header("Location: .");
 }
 ?>

@@ -6,8 +6,8 @@
     <title>Regisztráció</title>
 </head>
 <body>
-    <h3>Regisztráció</h3>
-        <form action="logicals/register.php" method="post">
+    <h3>Regisztráció: </h3>
+        <form action="./logicals/register.php" method="post">
             <label>Vezetéknév: </label><input type="text" name="lname" required><br>
             <label>Keresztnév: </label><input type="text" name="fname" required><br>
             <label>E-mail: </label><input type="email" name="email" required><br>

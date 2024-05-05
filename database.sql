@@ -16,4 +16,4 @@ ENGINE = MYISAM
 CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 INSERT INTO `users`(`user_id`,`firstname`,`lastname`,`email`,`username`, `password`) VALUES
-(1, 'admin', 'admin','admin@gmail.com','admin', 'admin123');
+(1, 'admin', 'admin','admin@gmail.com','admin', sha1('admin123'));

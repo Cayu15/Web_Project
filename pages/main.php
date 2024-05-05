@@ -7,9 +7,9 @@
 </head>
 <body>
     <div id="introduce">
-        <h2>Bemutatkozás</h2>
-        <p> Üdvözöllek a Kézműkuckóban!<br>
-            Ez egy olyan közösségi platform, ahol mindenki megoszthatja saját kézműves alkotásait amit szeretettel készített.
+        <h2>Bemutatkozás: </h2>
+        <p> Üdvözöllek a KézműKuckóban!<br>
+            Ez egy olyan közösségi platform, ahol mindenki megoszthatja saját kézműves alkotásait.
             Fedezd fel mások kreatív munkáit, inspirálódj, és oszd meg te is a saját ötleteidet a közösséggel!
         </p>
     </div>

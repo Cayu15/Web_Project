@@ -1,4 +1,3 @@
-<form action = "?page=login" method="post">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +6,10 @@
     <title>Bejelentkezés</title>
 </head>
 <body>
-    <form>
+    <form action = "?page=login" method="post">
+        <h3>Bejelentkezés: </h3>
         <label>Felhasználónév: </label> <input type="text" name="user" required><br>
-        <label>Jelszó: </label> <input type="password" name="password" required><br>
+        <label>Jelszó: </label><input type="password" name="password" required><br>
         <input type="submit" name="login" value="Belépés">
     </form>
 </body>
