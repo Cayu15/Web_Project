@@ -6,7 +6,7 @@
     <title>Visszajelzés</title>
 </head>
 <body>
-    <h3>Üzenetküldés az oldal tulajdonosa számára: </h3>
+    <h1>Üzenetküldés az oldal tulajdonosa számára: </h1>
     <form action="process.php"></form>
 </body>
 </html>

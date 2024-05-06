@@ -1,6 +1,7 @@
 <?php
-$data = $_SESSION;
-unset($_SESSION["fn"]);
-unset($_SESSION["ln"]);
-unset($_SESSION["login"]);
+    require_once("config.inc.php");
+
+    session_destroy();
+
+    header("Location: index.php");
 ?>

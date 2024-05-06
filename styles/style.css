@@ -2,6 +2,8 @@ body
 {
     background-color: #640D14;
     color: white;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
 }
 
 ul
@@ -32,6 +34,10 @@ li a:hover
     background-color: #AD2831;
 }
 
+a 
+{
+    color: white;
+}
 
 label
 {
@@ -43,9 +49,30 @@ input, select
 {
     margin: 10px 0;
     padding: 2px;
+    
 }
 
 #error
 {
     text-align: center;
+}
+
+
+div.image
+{
+    margin-bottom: 20px; 
+}
+
+div.image img
+{
+    border: 2px solid white;
+    max-width: 100%; 
+    height: auto;
+}
+
+#nav
+{
+    font-family: 'Courier New', monospace;
+    font-size: 25px;
+    padding: 10;
 }

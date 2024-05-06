@@ -1,8 +1,18 @@
 <?php
+session_start();
+
+$login_failed = false;
+
+function is_logged_in()
+{
+    return isset($_SESSION['user']);
+}
+
 $title = array
 (
     'title' => 'KézműKuckó',
 );
+
 $pages = array(
     '/' => array('file' => 'main', 'text' => 'Főoldal', 'onmenu' => array(1,1)),
     'gallery' => array('file' => 'gallery', 'text' => 'Képgaléria', 'onmenu' => array(1,1)),
@@ -12,7 +22,6 @@ $pages = array(
     'table' => array('file' => 'table', 'text' => 'Táblázat', 'onmenu' => array(1,1)),
     'register' => array('file' => 'register', 'text' => 'Regisztráció', 'onmenu' => array(1,0)),
     'login' => array('file' => 'login', 'text' => 'Bejelentkezés', 'onmenu' => array(1,0)),
-    'loggedin' => array('file' => 'loggedin', 'text' => ' ', 'onmenu' => array(0,0)),
     'logout' => array('file' => 'logout', 'text' => 'Kijelentkezés', 'onmenu' => array(0,1)),
 );
 

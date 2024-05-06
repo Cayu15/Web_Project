@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Üzenetek: </h3>
+    <h1>Üzenetek: </h1>
 </body>
 </html>
