@@ -18,7 +18,7 @@
                 <?php } ?>
 
                 <h1>Regisztráció</h1>
-                <form action="./logicals/register.php" method="post">
+                <form id="registrationform" action="./logicals/register.php" method="post">
                     <div class="form-group">
                         <label for="lastname">Vezetéknév</label>
                         <input type="text" class="form-control" id="lastname" name="lname">

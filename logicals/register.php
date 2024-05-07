@@ -1,6 +1,27 @@
 <?php
 if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) && isset($_POST['fname']) && isset($_POST['email']))
 {
+    if(!isset($_POST['fname']) || strlen($_POST['fname']) < 5)
+    {
+        exit("Hibás keresztnév: ".$_POST['fname']);
+    }
+
+    if(!isset($_POST['lname']) || strlen($_POST['lname']) < 5)
+    {
+        exit("Hibás Vezetéknév: ".$_POST['lname']);
+    }
+
+    $emailRegex = '/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/';
+    if(!isset($_POST['email']) || !preg_match($emailRegex,$_POST['email']))
+    {
+        exit("Hibás email: ".$_POST['email']);
+    }
+
+    if(!isset($_POST['password']) || empty($_POST['password']))
+    {
+        exit("Hibás jelszó: ".$_POST['password']);
+    }
+
     try {
         $dbh = new PDO('mysql:host=localhost;dbname=diyproject', 'root', '',
                         array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
@@ -28,7 +49,6 @@ if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) 
                 $newuser_id = $dbh->lastInsertId();                  
                 $retry = false;
                 $message = "A regisztráció sikeres.";
-                exit();
             }
             else {
                 $message = "A regisztráció nem sikerült.";
@@ -41,6 +61,7 @@ if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) 
         $retry = true;
     }      
 }
+
 else
 {
     header("Location: ./index.php");
