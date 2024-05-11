@@ -52,16 +52,19 @@ if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) 
                 $newuser_id = $dbh->lastInsertId();                  
                 $retry = false;
                 $message = "A regisztráció sikeres.";
+                header("Location: ./index.php");
             }
             else {
                 $message = "A regisztráció nem sikerült.";
                 $retry = true;
+                header("Location: ./index.php");
             }
         }
     }
     catch (PDOException $e) {
         $message = "Hiba: ".$e->getMessage();
         $retry = true;
+        echo $message;
     }      
 }
 
