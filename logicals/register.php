@@ -1,4 +1,7 @@
 <?php
+
+require_once("../includes/config.inc.php");
+
 if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) && isset($_POST['fname']) && isset($_POST['email']))
 {
     if(!isset($_POST['fname']) || strlen($_POST['fname']) < 5)
@@ -23,7 +26,7 @@ if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) 
     }
 
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=diyproject', 'root', '',
+        $dbh = new PDO($SQL['connection'], $SQL['user'], $SQL['password'],
                         array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
         $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
         
