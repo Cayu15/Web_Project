@@ -4,34 +4,28 @@
     if (isset($_POST['send'])) {
         foreach($_FILES as $file) {
             if ($file['error'] == 4);   
-            elseif (!in_array($file['type'], $MEDIATYPES))
-                $message[] = " Nem megfelelő típus: " . $file['name'];
+            elseif (!in_array($file['type'], $MEDIATYPE))
+                $message[] = " Nem megfelelő típus: " . $file['name'] . "(" . $file['type'] . ")";
             elseif ($file['error'] == 1   
                         or $file['error'] == 2   
                         or $file['size'] > $MAXSIZE) 
                 $message[] = " Túl nagy állomány: " . $file['name'];
             else {
-                $finalplace = $FOLDER.strtolower($file['name']);
+                $finalplace = $FOLDER . strtolower($file['name']);
                 if (file_exists($finalplace))
                     $message[] = " Már létezik: " . $file['name'];
                 else {
-                    move_uploaded_file($file['tmp_name'], $finalplace);
-                    $message[] = ' Ok: ' . $file['name'];
+                    if (move_uploaded_file($file['tmp_name'], $finalplace)) {
+                        $message[] = ' Ok: ' . $file['name'] . "(" . $finalplace . ")";
+                    } else {
+                        $message[] = ' Hiba: nem sikerült a fájl másolása (' . $finalplace . ")";
+                    }
                 }
             }
         }        
     }
 
-?><!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Galéria</title>
-    <style type="text/css">
-        label { display: block; }
-    </style>
-</head>
-<body>
+?>
     <h1>Feltöltés a galériába:</h1>
 <?php
     if (!empty($message))
@@ -42,10 +36,8 @@
             echo '</ul>';
     }
 ?>
-    <form action="upload.php" method="post"
+    <form action="?page=upload" method="post"
         enctype="multipart/form-data">
         <input type="file" name ="upfile" required>
         <input type="submit" name="send">
-    </form>    
-</body>
-</html>
+    </form>
