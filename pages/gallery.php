@@ -12,7 +12,7 @@
 ?>
 
 <div class="container">
-    <h1 class="mt-4">Felhasználók által feltöltött képek: </h1>
+    <h1 class="mt-4">A képfeltöltéshez jelentkezz be!</h1>
     <div class="row">
         <?php
             arsort($images);

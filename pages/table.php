@@ -1,4 +1,4 @@
-<h1>Üzenetek: </h1>
+<h1>Elküldött üzeneteid: </h1>
 <div>
     <table id="messages" class="table table-dark">
         <thead>
