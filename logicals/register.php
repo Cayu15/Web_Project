@@ -4,12 +4,12 @@ require_once("../includes/config.inc.php");
 
 if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) && isset($_POST['fname']) && isset($_POST['email']))
 {
-    if(!isset($_POST['fname']) || strlen($_POST['fname']) < 5)
+    if(!isset($_POST['fname']) || strlen($_POST['fname']) < 3)
     {
         exit("Hibás keresztnév: ".$_POST['fname']);
     }
 
-    if(!isset($_POST['lname']) || strlen($_POST['lname']) < 5)
+    if(!isset($_POST['lname']) || strlen($_POST['lname']) < 3)
     {
         exit("Hibás Vezetéknév: ".$_POST['lname']);
     }
