@@ -52,12 +52,12 @@ if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) 
                 $newuser_id = $dbh->lastInsertId();                  
                 $retry = false;
                 $message = "A regisztráció sikeres.";
-                header("Location: ./index.php");
+                header("Location: ../index.php");
             }
             else {
                 $message = "A regisztráció nem sikerült.";
                 $retry = true;
-                header("Location: ./index.php");
+                header("Location: ../index.php");
             }
         }
     }
@@ -70,7 +70,7 @@ if(isset($_POST['user']) && isset($_POST['password']) && isset($_POST['lname']) 
 
 else
 {
-    header("Location: ./index.php");
+    header("Location: ../index.php");
     exit();
 }
 ?>
